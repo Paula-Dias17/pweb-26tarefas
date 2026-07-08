@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+
+<style>
+    .concluida {
+        color: green;
+        font-weight: bold;
+    }
+
+    .pendente {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <h1>Lista de Tarefas</h1>
+
+    <ul>
+        {% for tarefa in tarefas %}
+            <li>
+                <div>
+                    <strong>{{ tarefa.nome }}</strong><br>
+
+                    {% if tarefa.prazo < hoje and not tarefa.status %}
+                        <span class="fracassada">{{ tarefa.prazo }} </span>
+                    {% else %}
+                        {{ tarefa.prazo }}
+                    {% endif %}
+                </div>
+
+                <div>
+                    {% if tarefa.status %}
+                        <span class="concluida">Concluída</span>
+                    {% else %}
+                        <span class="pendente">Pendente</span>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
