@@ -8,5 +8,4 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
-    # def __str__(self):
-    #     return (f"Titulo: {self.titulo} | texto: {self.texto}")
+
