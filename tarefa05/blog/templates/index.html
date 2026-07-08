@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div>
+    {% for post in posts %}
+    <li>
+        <h3>{{ post.titulo }}</h3>
+        <p>{{ post.data_publicacao }}</p>
+        <a href="/post/{{ post.id }}/">
+            Ler postagem
+        </a>
+    </li>
+    {% endfor %}
+</div>
 {% endblock %}
